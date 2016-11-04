@@ -18,19 +18,58 @@
   end
 
   class C
-    # your code goes here, for example
-    # include A
-    # include B
-
+    include A
+    prepend B
+    include B
+    
     def hello
       super if defined?(super)
       puts "hello from C"
     end
   end
 
-c = C.new
-c.hello # should be called in order => A,C,B
-        # should be called in order => A,B,C
-        # should be called in order => B,A,C
-        # should be called in order => C,B,A
-        # should be called in order => C,A,B
+  class D 
+    include A
+    include B
+    def hello
+      super if defined?(super)
+      puts "hello from C"
+    end
+  end  
+
+ class E 
+      include B
+      include A
+  def hello
+      super if defined?(super)
+      puts "hello from C"
+    end
+ end 
+
+ class F 
+      prepend B
+      include B
+      prepend A
+      include A
+  def hello
+      super if defined?(super)
+      puts "hello from C"
+    end
+ end 
+
+ class G 
+      prepend A
+      include A
+      prepend B
+      include B
+  def hello
+      super if defined?(super)
+      puts "hello from C"
+    end
+ end 
+
+C.new.hello # should be called in order => A,C,B
+D.new.hello  # should be called in order => A,B,C
+E.new.hello  # should be called in order => B,A,C
+F.new.hello  # should be called in order => C,B,A
+G.new.hello  # should be called in order => C,A,B
