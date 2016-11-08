@@ -68,7 +68,7 @@
     end
  end 
 
-C.new.hello # should be called in order => A,C,B
+C.new.hello  # should be called in order => A,C,B
 D.new.hello  # should be called in order => A,B,C
 E.new.hello  # should be called in order => B,A,C
 F.new.hello  # should be called in order => C,B,A
