@@ -37,7 +37,7 @@ class Formula
 		puts @current_value
 	end
 
-	def to_string
+	def to_str
 		@expression_array.each do | char |
 			@output_string += char.to_s
 		end
@@ -56,4 +56,4 @@ test.divide 2
 test.add 7
 test.multiply 3
 test.result
-test.to_string
+test.to_str
