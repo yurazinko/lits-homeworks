@@ -20,7 +20,7 @@
   class C
     include A
     prepend B
-    include B
+    #include B
     
     def hello
       super if defined?(super)
@@ -48,9 +48,7 @@
 
  class F 
       prepend B
-      include B
       prepend A
-      include A
   def hello
       super if defined?(super)
       puts "hello from C"
@@ -59,9 +57,7 @@
 
  class G 
       prepend A
-      include A
       prepend B
-      include B
   def hello
       super if defined?(super)
       puts "hello from C"
