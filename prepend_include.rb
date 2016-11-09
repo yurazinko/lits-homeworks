@@ -20,7 +20,6 @@
   class C
     include A
     prepend B
-    #include B
     
     def hello
       super if defined?(super)
