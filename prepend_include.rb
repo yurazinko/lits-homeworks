@@ -17,7 +17,7 @@
     end
   end
 
-  class C
+  class C # should be called in order => A,C,B
     include A
     prepend B
     
@@ -27,7 +27,7 @@
     end
   end
 
-  class D 
+  class D  # should be called in order => A,B,C
     include A
     include B
     def hello
@@ -36,7 +36,7 @@
     end
   end  
 
- class E 
+ class E # should be called in order => B,A,C
       include B
       include A
   def hello
@@ -45,7 +45,7 @@
     end
  end 
 
- class F 
+ class F # should be called in order => C,B,A
       prepend B
       prepend A
   def hello
@@ -54,7 +54,7 @@
     end
  end 
 
- class G 
+ class G # should be called in order => C,A,B
       prepend A
       prepend B
   def hello
